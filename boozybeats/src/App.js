@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './beerbeats.png';
+import logo from './boozybeats.png';
 
 // let Sidebar = require('./Sidebar.js');
 
@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
+        <Legalese />
       </div>
     );
   }
@@ -18,17 +19,18 @@ class Sidebar extends Component {
   render() {
     return (
       // TODO
+      
       <div className="Sidebar">
-        <img className="Logo" src={logo} width="200" height="200" />
-        <p className="SiteName"> BOOZY BEATS </p>
+        <img className="Logo" src={logo} />
+        <h1 className="SiteName"> BOOZY BEATS </h1>
         <hr />
-        <table className="Links" width="100">
-          <tr> <th> HOME </th> </tr>
-          <tr> <th> ABOUT US </th> </tr>
-          <tr> <th> SOURCES </th> </tr>
-        </table>
-        <svg height="100%">
-        </svg>
+        <div className="Links">
+          <h4 className="HomeLink"> HOME </h4>
+          <hr color="black"/>
+          <h4> ABOUT US </h4>
+          <hr color="black"/>
+          <h4> SOURCES </h4>
+        </div>
       </div>
     );
   }
@@ -65,7 +67,9 @@ class Legalese extends Component {
   render() {
     return (
       // TODO
-      <p> Hello </p>
+      <div className="Legalese">
+        <p> Made for HackCville's Launch program.  Please use responsibly. </p>
+      </div>
     );
   }
 }
