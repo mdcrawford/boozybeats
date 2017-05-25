@@ -38,4 +38,18 @@
 
 .HomeLink {
     height: 10%;
+    cursor: pointer;
+}
+
+.AboutUsLink {
+    cursor: pointer;
+}
+
+.SourcesLink{
+    cursor: pointer;
+}
+
+.MainScreen {
+    position: absolute;
+    left: 10%;
 }
