@@ -143,13 +143,11 @@ class Sidebar extends Component {
         <img className="Logo" src={logo} />
         <h1 className="SiteName"> BOOZY BEATS </h1>
         <hr />
-        <div className="Links">
-          <h4 className="HomeLink" onClick={this.props.onHomeClick}> HOME </h4>
+          <button className="HomeLink" onClick={this.props.onHomeClick}> HOME </button>
           <hr color="black"/>
-          <h4 className="AboutUsLink" onClick={this.props.onAboutClick}> ABOUT US </h4>
+          <button className="AboutUsLink" onClick={this.props.onAboutClick}> ABOUT US </button>
           <hr color="black"/>
-          <h4 className="SourcesLink" onClick={this.props.onSourcesClick}> SOURCES </h4>
-        </div>
+          <button className="SourcesLink" onClick={this.props.onSourcesClick}> SOURCES </button>
       </div>
     );
   }
@@ -185,11 +183,11 @@ class Legalese extends Component {
 
 
 
-// -------------------------------------- //
-// - The five possible states for Home -  //
-// - Only one will ever render anything - //
-// -             at once.               - //
-// -------------------------------------- //
+// ------------------------------------------- //
+// - The five possible states for MainScreen - //
+// - Only one will ever render anything at   - //
+// -                 once.                   - //
+// ------------------------------------------- //
 
 // Home
 class Home extends Component {
@@ -249,6 +247,7 @@ class musicToDrink extends Component {
     }
     return (
       <div className="musicToDrink">
+        <p> Music to Drink Results </p>
       </div>
     )
   }
@@ -257,8 +256,15 @@ class musicToDrink extends Component {
 // DrinkToMusic
 class drinkToMusic extends Component {
   render() {
+    if (this.props.display === false) {
+      return (
+        <div />
+      );
+    }
+    
     return (
       <div className="drinkToMusic">
+        <p> Drink to Music Results </p>
       </div>
     )
   }
