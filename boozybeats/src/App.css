@@ -17,6 +17,7 @@
     display: block;
     position: relative;
     width: 90%;
+    animation: App-logo-spin infinite 1s linear;
 }
 
 .Links {
@@ -25,30 +26,106 @@
     position: relative;
 }
 .Legalese {
-    background-color: navy;
+    border:none;
+    background-color: #C6C6C6;
     position: absolute;
     bottom: 0;
     width: 90%;
-    color: red;
+    color:black;
     left: 10%;
 }
 
 .HomeLink {
     cursor: pointer;
     width: 100%;
+    background-color:white;
+    border: none;
 }
 
 .AboutUsLink {
     cursor: pointer;
     width: 100%;
+    background-color:white;
+    border: none;
 }
 
 .SourcesLink{
     cursor: pointer;
     width: 100%;
+    background-color:white;
+    border: none;
 }
 
 .MainScreen {
+    height:92.5%;
+    background-color: #439DBB;
     position: absolute;
     left: 10%;
+}
+
+.About {
+    display: block;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.contact{
+   display: block;
+   padding-left: 100px;
+   padding-right: 100px; 
+}
+
+.personProfile{
+    position: relative;
+    float: left;
+    display:block;
+    padding-left:200px;
+    bottom: 30px
+}
+
+.Profilepic{
+    height: auto; 
+    width: auto; 
+    max-width: 218px;
+    max-height: 218px;
+}
+
+@keyframes App-logo-spin {
+  0%{transform: rotate(0deg)}
+  50%{transform: rotate(40deg)}
+  100%{transform: rotate(0deg)}
+}
+
+.ulList{
+    padding-left:400px;
+    list-style: none;
+}
+
+.listelement{
+    position:relative;
+    font-size: 20px;
+    padding-bottom: 55px;
+}
+
+.apilogos{
+    position: relative;
+    float: right;
+    height: auto; 
+    width: auto; 
+    max-width: 100px;
+    max-height: 100px;
+    right: 600px;
+    top:-20px;
+}
+
+.brewerydb{
+    position: relative;
+    float: right;
+    height: auto; 
+    width: auto; 
+    max-width: 75px;
+    max-height: 75px;
+    right: 600px;
+    top:-30px;
 }

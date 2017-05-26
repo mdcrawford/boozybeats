@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from './boozybeats.png';
+import mike from './michael.PNG';
+import youtube from './youtube.png';
+import brewerydb from './brewerydb.png';
+import wine from './wine.png';
+import lastfm from './lastfm.png';
 
 // let Sidebar = require('./Sidebar.js');
 
@@ -214,8 +219,38 @@ class About extends Component {
       );
     }
     return (
-      <div className="About">
-        <p> About Page </p>
+      <div>
+        <h1> About </h1>
+        <h3 className="About" >
+          Boozy Beats is a web application designed to pair your superior music taste with your refined penchant for all things alcohol. 
+          By simply entering your prefered artist for the night, Boozy Beats will automatically supply a list of recommended beverages to
+          complement your sophisticated ears.  Already know what you’re drinking, but don’t like what you’re hearing?  Boozy Beats can also 
+          take the name of your drink and pair it with a selective playlist curated from YouTube and Last.fm tags!
+        </h3>
+
+        <div>
+          <h2 className="contact">
+          Contributors:
+          </h2>
+          <div className="personProfile">
+            <h3>
+              <a href="https://github.com/mdcrawford">Michael Crawford </a>
+            </h3>
+            <h3>
+              mdc8wa@virginia.edu
+            </h3>
+            <img className="Profilepic" src={mike} />
+          </div>     
+          <div className="personProfile">
+            <h3>
+              <a href="https://github.com/Starpit390">Arpit Rupakhetee </a>
+            </h3>
+            <h3>
+              ar9cd@virginia.edu
+            </h3>
+            <img className="Profilepic" src={mike} alt="Michael Crawford" />
+          </div>          
+        </div>
       </div>
     )
   }
@@ -230,8 +265,25 @@ class Sources extends Component {
       );
     }
     return (
-      <div className="Sources">
-        <p> Sources Page </p>
+      <div>
+        <h1> Sources </h1>
+        <h2 className="About">
+          We would like to thank our friends at Youtube, Last.FM, Brewery DB and Wine.com. 
+          This gorgeous website would not be possible without their APIs listed below:
+        </h2>
+        <ul className="ulList">
+          <li className="listelement">
+          <a href="https://developers.google.com/youtube/player_parameters"> Youtube </a>
+          <a href="https://youtube.com"> <img className="apilogos" src={youtube} alt="youtube"/></a> </li>
+          <li className="listelement"><a href="http://www.last.fm/api"> Last.fm </a>
+          <a href="https://www.last.fm/"><img className="apilogos" src={lastfm} alt="lastfm"/></a> </li>
+          <li className="listelement"><a href="http://www.brewerydb.com/developers/docs"> Brewery DB </a>
+          <a href="http://www.brewerydb.com/">
+          <img className="brewerydb" src={brewerydb} alt="brewerydb"/></a></li>
+          <li className="listelement"><a href="https://api.wine.com/"> Wine.com </a>
+          <a href= "http://www.wine.com/"><img className="apilogos" src={wine} alt="wine.com"/></a> </li>
+        </ul>
+        
       </div>
     )
   }
