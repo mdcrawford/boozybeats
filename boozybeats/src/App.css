@@ -20,12 +20,9 @@
 }
 
 .Links {
-    background-color: white;
     text-align: center;
     display: block;
     position: relative;
-    color: red;
-    border: 10px solid black;
 }
 .Legalese {
     background-color: navy;
@@ -37,16 +34,18 @@
 }
 
 .HomeLink {
-    height: 10%;
     cursor: pointer;
+    width: 100%;
 }
 
 .AboutUsLink {
     cursor: pointer;
+    width: 100%;
 }
 
 .SourcesLink{
     cursor: pointer;
+    width: 100%;
 }
 
 .MainScreen {
