@@ -7,11 +7,6 @@ import lastfm from './images/lastfm.png';
 // Sources
 class Sources extends Component {
   render() {
-    if (this.props.display === false) {
-      return (
-        <div />
-      );
-    }
     return (
       <div>
         <h1> Sources </h1>
