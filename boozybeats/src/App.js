@@ -220,12 +220,12 @@ class About extends Component {
     }
     return (
       <div>
-        <h1> About </h1>
+        <h1> About Us </h1>
         <h3 className="About" >
           Boozy Beats is a web application designed to pair your superior music taste with your refined penchant for all things alcohol. 
           By simply entering your prefered artist for the night, Boozy Beats will automatically supply a list of recommended beverages to
           complement your sophisticated ears.  Already know what you’re drinking, but don’t like what you’re hearing?  Boozy Beats can also 
-          take the name of your drink and pair it with a selective playlist curated from YouTube and Last.fm tags!
+          take the name of your drink and pair it with a selective playlist curated from YouTube and Last.fm!
         </h3>
 
         <div>
