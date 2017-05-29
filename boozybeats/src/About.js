@@ -4,11 +4,6 @@ import mike from './images/michael.PNG';
 // About Page.  If the display prop is true, this will display
 class About extends Component {
   render() {
-    if (this.props.display === false) {
-      return (
-        <div />
-      );
-    }
     return (
       <div>
         <h1> About Us </h1>

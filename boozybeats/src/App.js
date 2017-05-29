@@ -22,6 +22,9 @@ class App extends Component {
     }
   }
 
+  // The different click methods to be passed around.  Can probably consolidate
+  // these later??
+
   onHomeClick() {
     // change state to load home page
     this.setState({
@@ -70,8 +73,24 @@ class App extends Component {
     });
   }
 
-  onBeerClick() {
-    // change state to load the drinkToMusic page
+  onBeerClick(beerName) {
+    // change state to load the DrinkToMusic page
+    this.setState({
+      pages: {
+        home: false,
+        about: false,
+        sources: false,
+        musicToDrink: false,
+        drinkToMusic: true,
+      },
+      beerSearchTerm: beerName,
+      wineSearchTerm: "",
+      artistSearchTerm: "",
+    });
+  }
+
+  onWineClick(wineName) {
+    // change state to load the DrinkToMusic page
     this.setState({
       pages: {
         home: false,
@@ -81,29 +100,12 @@ class App extends Component {
         drinkToMusic: true,
       },
       beerSearchTerm: "",
-      wineSearchTerm: "",
+      wineSearchTerm: wineName,
       artistSearchTerm: "",
     });
   }
 
-  onWineClick() {
-    // TODO
-    this.setState({
-      pages: {
-        home: false,
-        about: false,
-        sources: false,
-        musicToDrink: false,
-        drinkToMusic: true,
-      },
-      beerSearchTerm: "",
-      wineSearchTerm: "",
-      artistSearchTerm: "",
-    });
-  }
-
-  onArtistClick() {
-    // TODO
+  onArtistClick(artistName) {
     this.setState({
       pages: {
         home: false,
@@ -114,9 +116,12 @@ class App extends Component {
       },
       beerSearchTerm: "",
       wineSearchTerm: "",
-      artistSearchTerm: "",
+      artistSearchTerm: artistName,
     });
+    console.log(artistName);
   }
+
+  //
 
   render() {
     return (
@@ -127,15 +132,19 @@ class App extends Component {
           onSourcesClick={() => this.onSourcesClick()}
         />
         <Legalese />
-        <MainScreen pages={this.state.pages} />
+        <MainScreen 
+          pages={this.state.pages}
+          onBeerClick={(beer) => this.onBeerClick(beer)}
+          onWineClick={(wine) => this.onWineClick(wine)}
+          onArtistClick={(artist) => this.onArtistClick(artist)}
+          beerSearchTerm={this.state.beerSearchTerm}
+          wineSearchTerm={this.state.wineSearchTerm}
+          artistSearchTerm={this.state.artistSearchTerm}
+        />
       </div>
     );
   }
 }
-
-
-
-
 
 
 export default App;
