@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Home from './Home.js';
 import About from './About.js';
 import Sources from './Sources.js';
-import DrinkToMusic from './DrinkToMusic.js';
+import BeerToMusic from './BeerToMusic.js';
 import MusicToDrink from './MusicToDrink.js';
+import WineToMusic from './WineToMusic.js';
 
 // The main section of the screen.  At any given point only ONE of the 5 possible
 // components are rendered.
@@ -26,8 +27,15 @@ class MainScreen extends Component {
           /> 
         ) : ( <div /> )}
 
-        {this.props.pages.drinkToMusic ? (
-          <DrinkToMusic 
+        {this.props.pages.beerToMusic ? (
+          <BeerToMusic 
+            beerSearchTerm={this.props.beerSearchTerm}
+            wineSearchTerm={this.props.wineSearchTerm}
+          /> 
+        ) : ( <div /> )}
+
+        {this.props.pages.wineToMusic ? (
+          <WineToMusic 
             beerSearchTerm={this.props.beerSearchTerm}
             wineSearchTerm={this.props.wineSearchTerm}
           /> 

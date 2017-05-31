@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-// DrinkToMusic
-class DrinkToMusic extends Component {
+// BeerToMusic
+class BeerToMusic extends Component {
 
   constructor(props) {
     super(props);
@@ -40,4 +40,4 @@ class DrinkToMusic extends Component {
   }
 }
 
-export default DrinkToMusic;
+export default BeerToMusic;
