@@ -118,7 +118,6 @@ class App extends Component {
       wineSearchTerm: "",
       artistSearchTerm: artistName,
     });
-    console.log(artistName);
   }
 
   //

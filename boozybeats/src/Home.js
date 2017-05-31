@@ -17,21 +17,17 @@ class Home extends Component {
       ...this.state,
       [field]: event.target.value,
     })
-    console.log(this.state);
   }
 
   handleSubmit(field, event) {
     switch(field) {
       case "beer":
-        console.log("Beer method");
         this.props.onBeerClick(this.state.beerName);
         break;
       case "wine":
-        console.log("Wine method");
         this.props.onWineClick(this.state.wineName);
         break;
       case "artist":
-        console.log("Artist method");
         this.props.onArtistClick(this.state.artistName);
         break;
       default:
