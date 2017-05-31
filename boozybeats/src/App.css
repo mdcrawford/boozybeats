@@ -133,3 +133,21 @@
     right: 600px;
     top:-30px;
 }
+
+.Home-Beer-Search{
+    position:relative;
+    left:300px;
+    top: 100px;
+}
+
+.Home-Wine-Search{
+    position:relative;
+    left:300px;
+    top: 300px;
+}
+
+.Home-Artist-Search{
+    position:relative;
+    left:300px;
+    top: 500px;
+}

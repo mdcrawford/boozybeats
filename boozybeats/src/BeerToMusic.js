@@ -34,7 +34,6 @@ class BeerToMusic extends Component {
     return (
       <div className="drinkToMusic">
         <p> Beer Name: {this.props.beerSearchTerm} </p>
-        <p> Wine Name: {this.props.wineSearchTerm} </p>
       </div>
     )
   }
