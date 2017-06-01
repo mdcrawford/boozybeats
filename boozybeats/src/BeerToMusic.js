@@ -61,7 +61,7 @@ class BeerToMusic extends Component {
       <div className="drinkToMusic">
         <p> Beer Name: {this.state.beerInfo.name}</p>
         <p> Beer Name: {this.state.beerInfo.description}</p>
-        <iframe id="ytplayer" type="text/html" width="640" height="360"
+        <iframe className="ytplayer" type="text/html" width="640" height="360"
           src={"https://www.youtube.com/embed?listType=search&list=" + this.state.tag + "+music"}>
         </iframe>
       </div>

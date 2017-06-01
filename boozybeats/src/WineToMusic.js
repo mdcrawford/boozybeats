@@ -21,22 +21,41 @@ class WineToMusic extends Component {
     _saveQuery=response =>{
         let wineInfo=response.data.Products.List[0];
         var wineClass=this.getWineClass(wineInfo);
-        var tag=this.getTagOfClass(wineClass);
+        let wineName=wineInfo.Name;
+        var tag=this.getTagOfClass(wineClass, wineName);
+        console.log(tag);
         this.setState({
             wineInfo: wineInfo,
             tag:tag
         })
-
-        console.log(this.state.tag);
     }
 
-    getTagOfClass(wineClass){
+    getClassSize(size){
+        switch(size){
+            case 2:
+                //console.log(classTag.class2.length);
+                return classTag.class2.length;
+            case 3:
+                //console.log(classTag.class3.length);
+                return classTag.class3.length;
+        }
+    }
+
+    getTagOfClass(wineClass, wineName){
         switch (wineClass){
             case 2:
-                return classTag.class2[0];
+                return classTag.class2[this.hashFunction(wineName, this.getClassSize(wineClass))];
             case 3:
-                return classTag.class3[0];
+                return classTag.class3[this.hashFunction(wineName, this.getClassSize(wineClass))];
     }
+    }
+
+    hashFunction(wineName, classSize) {
+        var total=0;
+        for (let i=0; i<wineName.length; i++){
+            total+=wineName.charCodeAt(i)*i;
+        }
+        return total%classSize;
     }
 
     getWineClass(wine){
@@ -56,7 +75,11 @@ class WineToMusic extends Component {
     render() {
         return (
             <div>
-                <p> Wine name: {this.props.wineSearchTerm} </p>
+                <p> Wine name: {this.state.wineInfo.Name} </p>
+                <p> Wine name: {this.state.wineInfo.Description} </p>
+                <iframe className="ytplayer" type="text/html" width="640" height="360"
+                src={"https://www.youtube.com/embed?listType=search&list=" + this.state.tag + "+music"}>
+                </iframe>
             </div>
         )
     }
