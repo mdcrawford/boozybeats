@@ -18,8 +18,8 @@ class BeerToMusic extends Component {
 
   _saveQuery = response => {
     let beerInfo = response.data.data[0];
-    var beerClass1=this.getBeerClass(beerInfo);
-    var tag=this.getTagOfClass(beerClass1);
+    var beerClass = this.getBeerClass(beerInfo); // 1, 2, or 3
+    var tag = this.getTagOfClass(beerClass, beerInfo.name); // currently returns index 0
     this.setState({
       beerInfo: beerInfo,
       tag: tag
@@ -35,25 +35,50 @@ class BeerToMusic extends Component {
       .then(this._saveQuery)
   }
 
-  getBeerClass(beer){
-    if(beer.abv<5){
+  getBeerClass(beer) {
+    if (beer.abv < 5) {
       return 1;
     }
-    if(beer.abv<8){
+    if (beer.abv < 8) {
       return 2;
     }
     return 3;
   }
 
-  getTagOfClass(beerClass){
-    switch (beerClass){
+  getTagOfClass(beerClass, beerName) {
+    let classSize = 0;
+    switch (beerClass) {
       case 1:
-        return classTag.class1[0];
+        classSize = this.getClassSize(beerClass);
+        return classTag.class1[this.getIndexOfClass(beerName, classSize)];
+
       case 2:
-        return classTag.class2[0];
+        classSize = this.getClassSize(beerClass);
+        return classTag.class2[this.getIndexOfClass(beerName, classSize)];
+
       case 3:
-        return classTag.class3[0];
+        classSize = this.getClassSize(beerClass);
+        return classTag.class3[this.getIndexOfClass(beerName, classSize)];
     }
+  }
+
+  getClassSize(className) {
+    switch(className) {
+      case 1:
+        return classTag.class1.length;
+      case 2:
+        return classTag.class2.length;
+      case 3:
+        return classTag.class3.length;
+    }
+  }
+
+  getIndexOfClass(beerName, classSize) {
+    var total=0;
+    for (let i = 0; i < beerName.length; i++){
+        total += beerName.charCodeAt(i) * i;
+    }
+    return total % classSize;
   }
 
   render() {

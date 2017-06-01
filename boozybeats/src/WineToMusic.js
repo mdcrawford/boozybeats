@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import wineData from './JSON/wine.json';
 import classTag from './JSON/classToTag.json';
 
 var apikey="36e788d29c49043baee478357fc2620c";
@@ -13,51 +12,31 @@ class WineToMusic extends Component {
             wineInfo: {
                 name: "",
                 description:""
-                },
-                tag:""
+            },
+            tag:""
         }
     }
 
+    // upon mounting, make the axios request on the wine search term
+    componentWillMount(){
+        let url="http://services.wine.com/api/beta2/service.svc/json/catalog?apikey="+apikey+"&search="+this.props.wineSearchTerm;
+        axios.get(url)
+            .then(this._saveQuery)
+    }
+
+    // using the axios response, sets the wine's info and the tag
     _saveQuery=response =>{
-        let wineInfo=response.data.Products.List[0];
-        var wineClass=this.getWineClass(wineInfo);
-        let wineName=wineInfo.Name;
-        var tag=this.getTagOfClass(wineClass, wineName);
-        console.log(tag);
+        let wineInfo = response.data.Products.List[0];
+        let wineClass = this.getWineClass(wineInfo);
+        let wineName = wineInfo.Name;
+        let tag = this.getTagOfClass(wineClass, wineName);
         this.setState({
             wineInfo: wineInfo,
-            tag:tag
+            tag: tag
         })
     }
 
-    getClassSize(size){
-        switch(size){
-            case 2:
-                //console.log(classTag.class2.length);
-                return classTag.class2.length;
-            case 3:
-                //console.log(classTag.class3.length);
-                return classTag.class3.length;
-        }
-    }
-
-    getTagOfClass(wineClass, wineName){
-        switch (wineClass){
-            case 2:
-                return classTag.class2[this.hashFunction(wineName, this.getClassSize(wineClass))];
-            case 3:
-                return classTag.class3[this.hashFunction(wineName, this.getClassSize(wineClass))];
-    }
-    }
-
-    hashFunction(wineName, classSize) {
-        var total=0;
-        for (let i=0; i<wineName.length; i++){
-            total+=wineName.charCodeAt(i)*i;
-        }
-        return total%classSize;
-    }
-
+    // takes in a wine and determines its class
     getWineClass(wine){
         if(wine.PriceRetail<35){
             return 2;
@@ -65,13 +44,39 @@ class WineToMusic extends Component {
         return 3;
     }
 
-    componentWillMount(){
-         let url="http://services.wine.com/api/beta2/service.svc/json/catalog?apikey="+apikey+"&search="+this.props.wineSearchTerm;
+    // uses the determined class (2 or 3) and the wineName (string) to determine the tag from that class
+    getTagOfClass(wineClass, wineName) {
+        let classSize = 0;
+        switch (wineClass) {
+            case 2:
+                classSize = this.getClassSize(wineClass);
+                return classTag.class2[this.getIndexOfClass(wineName, classSize)];
+            case 3:
+                classSize = this.getClassSize(wineClass);
+                return classTag.class3[this.getIndexOfClass(wineName, classSize)];
+        }
+    }
 
-         axios.get(url)
-            .then(this._saveQuery)
+    // takes in the className (2 or 3) and returns the length of that class's array
+    getClassSize(className){
+        switch(className){
+            case 2:
+                return classTag.class2.length;
+            case 3:
+                return classTag.class3.length;
+        }
+    }
+
+    // effectively a hash function to determine the index of the tag
+    getIndexOfClass(wineName, classSize) {
+        var total=0;
+        for (let i=0; i<wineName.length; i++){
+            total+=wineName.charCodeAt(i)*i;
+        }
+        return total%classSize;
     }
    
+    // render that bad boy
     render() {
         return (
             <div>
