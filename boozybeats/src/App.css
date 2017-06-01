@@ -95,6 +95,13 @@
     max-height: 218px;
 }
 
+.Profilepic2{
+    height: auto; 
+    width: auto; 
+    max-width:  261px;
+    max-height: 261px;
+}
+
 @keyframes App-logo-spin {
   0%{transform: rotate(0deg)}
   50%{transform: rotate(40deg)}
@@ -137,17 +144,17 @@
 .Home-Beer-Search{
     position:relative;
     left:300px;
-    top: 100px;
+    top: 0px;
 }
 
 .Home-Wine-Search{
     position:relative;
     left:300px;
-    top: 300px;
+    top: 100px;
 }
 
 .Home-Artist-Search{
     position:relative;
     left:300px;
-    top: 500px;
+    top: 200px;
 }

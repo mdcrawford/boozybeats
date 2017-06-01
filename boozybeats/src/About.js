@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import mike from './images/michael.PNG';
+import arpit from './images/arpit.PNG';
 
 // About Page.  If the display prop is true, this will display
 class About extends Component {
@@ -25,7 +26,7 @@ class About extends Component {
             <h3>
               mdc8wa@virginia.edu
             </h3>
-            <img className="Profilepic" src={mike} />
+            <img className="Profilepic" src={mike} alt="Michael Crawford"/>
           </div>     
           <div className="personProfile">
             <h3>
@@ -34,7 +35,7 @@ class About extends Component {
             <h3>
               ar9cd@virginia.edu
             </h3>
-            <img className="Profilepic" src={mike} alt="Michael Crawford" />
+            <img className="Profilepic2" src={arpit} alt="Arpit Rupakhetee" />
           </div>          
         </div>
       </div>
