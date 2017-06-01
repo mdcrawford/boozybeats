@@ -42,7 +42,7 @@ class MusicToDrink extends Component {
         <ul>
           {this.state.lastFmResults.map(tag => <li> {tag} </li>)}
         </ul>
-        <iframe id="ytplayer" type="text/html" width="640" height="360"
+        <iframe className="ytplayer" type="text/html" width="640" height="360"
           src={"https://www.youtube.com/embed?listType=search&list=" + this.props.artistSearchTerm + "+music"}>
         </iframe>
       </div>
