@@ -3,13 +3,7 @@ import Sidebar from './Sidebar.js';
 import MainScreen from './MainScreen.js';
 import Legalese from './Legalese.js';
 import './App.css';
-import wine from './JSON/wine.json';
-import beer from './JSON/beerData2.json';
-import song from './JSON/classToTag.json';
 
-
-
-console.log(song);
 // The entire App.  Renders everything.  What gets exported to the ReactDOM.
 class App extends Component {
   constructor(props) {
