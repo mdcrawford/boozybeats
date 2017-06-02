@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import classTag from './JSON/classToTag.json';
+import classTag from './JSON/classToTagArray.json';
 
 // BeerToMusic
 class BeerToMusic extends Component {
