@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import classTag from './JSON/classToTag.json';
+import classTag from './JSON/classToTagArray.json';
+
 
 var apikey="36e788d29c49043baee478357fc2620c";
 
@@ -30,6 +31,7 @@ class WineToMusic extends Component {
         let wineClass = this.getWineClass(wineInfo);
         let wineName = wineInfo.Name;
         let tag = this.getTagOfClass(wineClass, wineName);
+        
         this.setState({
             wineInfo: wineInfo,
             tag: tag
@@ -78,10 +80,16 @@ class WineToMusic extends Component {
    
     // render that bad boy
     render() {
+        let description = <div />;
+        
+        if (this.state.wineInfo.description != "") {
+            description = <p> Wine Description: {this.state.wineInfo.Description} </p>
+        }
+
         return (
             <div>
                 <p> Wine name: {this.state.wineInfo.Name} </p>
-                <p> Wine name: {this.state.wineInfo.Description} </p>
+                
                 <iframe className="ytplayer" type="text/html" width="640" height="360"
                 src={"https://www.youtube.com/embed?listType=search&list=" + this.state.tag + "+music"}>
                 </iframe>

@@ -24,6 +24,16 @@
     animation: App-logo-spin infinite 1s linear;
 }
 
+
+.Logo2 {
+    display: block;
+    width: 78%;
+    opacity: .5;
+    position:absolute;
+    top: -2px;
+    left: 12px
+}
+
 .Links {
     text-align: center;
     display: block;

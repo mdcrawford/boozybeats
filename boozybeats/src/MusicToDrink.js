@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import classToDrinks from './JSON/classToDrinks.json'
+import classToTag from './JSON/classToTag.json'
 
 const lastFmApiKey = "d8cc66f2f9b40b2768bc52284b1d06c9";
 
@@ -11,18 +12,27 @@ class MusicToDrink extends Component {
     super(props);
     this.state = {
       lastFmResults: [],
+      drink: {
+        name: "",
+        description: "",
+      }
     }
   }
 
   _saveQuery = response => {
     let allResults = response.data.toptags.tag;
     let tags = [];
+
     for (let val of allResults) {
-      tags.push(val.name);
+      tags.push(val.name.toLowerCase());
     }
-    console.log(tags);
+
+    let artistClass = this.getArtistClass(tags);
+    let drink = this.getDrinkOfClass(artistClass, this.props.artistSearchTerm);
+    
     this.setState({
-      lastFmResults: tags
+      lastFmResults: tags,
+      drink: drink
     })
   };
 
@@ -37,9 +47,39 @@ class MusicToDrink extends Component {
   }
 
   // do a request for the artist's tags and calculate their class from there
-  getArtistClass(artist) {
-    // TODO
+  getArtistClass(tags) {
+    let total=0;
+    let numValidTags = 0;
+    for(let tag of tags){
+      let toAdd = this.getTagsVal(tag);
+      if (toAdd > 0) {
+        numValidTags++;
+      }
+      total += toAdd;
+    }
+
+    let average = total / parseFloat(numValidTags);
+    console.log(average);
+    if (average < 1.7 ) {
+      return 1;
+    } else if ( average < 2.3 ){
+      return 2;
+    } else {
+      return 3;
+    }
   }
+
+  getTagsVal(tag) {
+    if(classToTag.class1[tag]){
+      return 1;
+    } else if(classToTag.class2[tag]){
+      return 2;
+    } else if(classToTag.class3[tag]) {
+      return 3;
+    }
+    return 0;
+  }
+
 
   // use the artist's class and name to find a drink to be displayed
   getDrinkOfClass(artistClass, artistName) {
@@ -91,9 +131,8 @@ class MusicToDrink extends Component {
     return (
       <div className="musicToDrink">
         <p> Artist Name: {this.props.artistSearchTerm} </p>
-        <ul>
-          {this.state.lastFmResults.map(tag => <li> {tag} </li>)}
-        </ul>
+        <p> Enjoy some {this.state.drink.name} </p>
+        <p> Some more info: {this.state.drink.description} </p> 
         <iframe className="ytplayer" type="text/html" width="640" height="360"
           src={"https://www.youtube.com/embed?listType=search&list=" + this.props.artistSearchTerm + "+music"}>
         </iframe>
