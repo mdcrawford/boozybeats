@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo2 from './images/beerbeats.png';
 
 // Home
 class Home extends Component {
@@ -42,9 +43,10 @@ class Home extends Component {
     return (
       <div className="Home">
 
-        <h1> Home Page </h1>
+        <h1 className="homeTitle"> Home Page </h1>
 
         <form className="Home-Beer-Search" onSubmit={(e) => this.handleSubmit("beer", e)}>
+          <h5> Search what you're drinking to find some appropriate music... </h5>
           <label>
             Beer:
             <input type="text" onChange={ (event) => this.onInputChange("beerName", event)}/>
@@ -61,13 +63,15 @@ class Home extends Component {
         </form>
 
         <form className="Home-Artist-Search" onSubmit={(e) => this.handleSubmit("artist", e)}>
+          <h5> ...or search who you're listening to and find an appropriate drink! </h5>
           <label>
             Artist:
             <input type="text" onChange={ (event) => this.onInputChange("artistName", event)}/>
           </label>
           <input type="submit" value="Search Artist" />
         </form>
-
+        <hr className="horizontalline" />
+        <img className="LogoHome" src={logo2} />
       </div>
     )
   }

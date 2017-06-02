@@ -83,13 +83,14 @@ class WineToMusic extends Component {
         let description = <div />;
         
         if (this.state.wineInfo.description != "") {
-            description = <p> Wine Description: {this.state.wineInfo.Description} </p>
+            description = <h5> Wine Description: {this.state.wineInfo.Description} </h5>
         }
 
         return (
             <div>
-                <p> Wine name: {this.state.wineInfo.Name} </p>
-                
+                <h4 className="searchText"> Paired your {this.state.wineInfo.Name}</h4>
+                <h4 className="searchText">With</h4>
+                <h1 className="searchText">{this.state.tag.toUpperCase()}</h1>
                 <iframe className="ytplayer" type="text/html" width="640" height="360"
                 src={"https://www.youtube.com/embed?listType=search&list=" + this.state.tag + "+music"}>
                 </iframe>

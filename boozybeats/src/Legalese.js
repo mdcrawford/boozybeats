@@ -7,7 +7,7 @@ class Legalese extends Component {
     return (
       // TODO
       <div className="Legalese">
-        <p> Made for HackCville's Launch program.  Please use responsibly. </p>
+        <p className="legaleseText"> Made for HackCville's Launch program.  Please use responsibly. </p>
       </div>
     );
   }

@@ -1,6 +1,3 @@
-.App {
-    background-color: #439DBB;
-}
 
 .Sidebar {
     height: 100%;
@@ -72,7 +69,6 @@
 
 .MainScreen {
     height:92.5%;
-    background-color: #439DBB;
     position: absolute;
     left: 10%;
 }
@@ -153,18 +149,55 @@
 
 .Home-Beer-Search{
     position:relative;
-    left:300px;
+    left:100px;
     top: 0px;
 }
 
 .Home-Wine-Search{
     position:relative;
-    left:300px;
-    top: 100px;
+    left:100px;
+    top: 50px;
 }
 
 .Home-Artist-Search{
     position:relative;
-    left:300px;
-    top: 200px;
+    left:100px;
+    top: 125px;
+}
+
+.horizontalline{
+    position:relative;
+    left:100px
+}
+
+.homeTitle{
+    position:relative;
+    left:100px;
+}
+
+.LogoHome{
+    position:relative;
+    left:800px;
+    width:500px;
+    height:auto;
+    top:-275px;
+}
+
+.searchText{
+    position:relative;
+    left:75px;
+}
+
+.searchTextMiddle{
+    position:relative;
+    left:75px;}
+
+.ytplayer{
+    position:relative;
+    left:75px;
+}
+
+.legaleseText{
+    position: relative;
+    left: 75px;
 }

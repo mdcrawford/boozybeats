@@ -128,14 +128,22 @@ class MusicToDrink extends Component {
   }
 
   render() {
+    let description = <div />
+    if (this.state.drink.description != "") {
+      description = <h5> Some more info: {this.state.drink.description} </h5>
+    }
+
     return (
       <div className="musicToDrink">
-        <p> Artist Name: {this.props.artistSearchTerm} </p>
-        <p> Enjoy some {this.state.drink.name} </p>
-        <p> Some more info: {this.state.drink.description} </p> 
+        <h4 className="searchText"> Listening to  {this.props.artistSearchTerm.toUpperCase()} ? </h4>
+        <h4 className="searchText"> Pair it with some </h4>
+        <h1 className="searchText"> {this.state.drink.name.toUpperCase()} </h1>
+
         <iframe className="ytplayer" type="text/html" width="640" height="360"
           src={"https://www.youtube.com/embed?listType=search&list=" + this.props.artistSearchTerm + "+music"}>
         </iframe>
+
+        {description}
       </div>
     )
   }

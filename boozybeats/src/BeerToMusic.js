@@ -82,13 +82,21 @@ class BeerToMusic extends Component {
   }
 
   render() {
+    let description = <div />;
+        
+        if (this.state.beerInfo.description != undefined) {
+            description = <h5>{this.state.beerInfo.description} </h5>
+        }
+
     return (
       <div className="drinkToMusic">
-        <p> Beer Name: {this.state.beerInfo.name}</p>
-        <p> Beer Name: {this.state.beerInfo.description}</p>
+        <h4 className="searchText"> Paired your {this.state.beerInfo.name}</h4>
+        <h4 className="searchTextMiddle">With</h4>
+        <h1 className="searchText">{this.state.tag.toUpperCase()}</h1>       
         <iframe className="ytplayer" type="text/html" width="640" height="360"
           src={"https://www.youtube.com/embed?listType=search&list=" + this.state.tag + "+music"}>
         </iframe>
+        {description}
       </div>
     )
   }
